@@ -207,7 +207,7 @@ dcc.Markdown('''*by [Ryan Ashton] (www.linkedin.com/in/ryan-mark-ashton) | Analy
 dcc.Markdown('''In this short analysis, we review the Australian economy in terms of volume changes by industry that the Australian Bureau of Statistics (ABS) provides.
 The graphs below are created with Python programming (Plotly) and are directly linked to the ABS website.
 
-In the background, the code downloads the excel file provided by ABS, cleans it, calculates it and then plots it in a way the ABS would not normally cut their data. To see the code, please feel free to visit here:
+In the background, the code downloads the excel file provided by ABS, cleans it, calculates it and then plots it in a way the ABS would not normally cut their data. To see the code, please feel free to visit [here] (https://github.com/Ryan-Ashton/GDP-Industry-Analysis)
 
 
 The ABS normally show a rolling quarter on quarter or current quarter vs. the equivalent quarter last year change. The graphs below will be rolling up the previous 4 quarters and compare it with the prior 4 quarters to show a rolling year on year change to show a longer-term perspective.
