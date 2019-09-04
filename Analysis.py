@@ -8,7 +8,9 @@ import dash_html_components as html
 
 #Data --------------------------------------------------------
 
-df = pd.read_excel(f"https://www.abs.gov.au/ausstats/meisubs.nsf/log?openagent&5206006_industry_gva.xls&5206.0&Time%20Series%20Spreadsheet&15740D8C8E5627D1CA25840F00187F6F&0&Mar%202019&05.06.2019&Latest",
+df = pd.read_excel(f"https://www.abs.gov.au/ausstats/meisubs.nsf/log?openagent&5206006_industry_gva.xls&5206.0&Time%20Series%20Spreadsheet&FB0288F3D84258E8CA25846A001DC9A4&0&Jun%202019&04.09.2019&Latest",
+	
+
 	sheet_name='Data1')
 
 columns = ["Unnamed: 0",
@@ -68,8 +70,8 @@ df.drop(['Unit', 'Series Type', 'Data Type','Frequency', 'Collection Month',
 df.index = pd.to_datetime(df.index)
 df.index.names = ['Date']
 
-Prior_Year = df['2017-06-01' :'2018-03-01']
-Current_Year = df['2018-06-01' :'2019-03-01']
+Prior_Year = df['2017-09-01' :'2018-06-01']
+Current_Year = df['2018-09-01' :'2019-06-01']
 
 # Prior Year Calculations
 Agr_PY = Prior_Year['Agriculture, forestry and fishing'].sum() * 1000000
@@ -196,6 +198,7 @@ layoutBar= go.Layout(
 
 # Launch the application ----------------------------------------------
 app = dash.Dash()
+server = app.server
 
 
 
@@ -222,8 +225,8 @@ The ABS recommend trend estimates as the best source of information for making d
 Below, we see how big each industry is in terms of volume contribution to the economy.
  '''),
 
-html.Div([html.H3("Australian GDP Industry by Size (Volume)")], style={"textAlign": "center"}),
-html.Div([html.H4("March 2018 to March 2019 (12 months)")], style={"textAlign": "center"}),
+html.Div([html.H3("Australian GDP Industry by Size (Chain Volume Measure)")], style={"textAlign": "center"}),
+html.Div([html.H4("June 2018 to June 2019 (12 months)")], style={"textAlign": "center"}),
 dcc.Graph(
 	figure= go.Figure(
 		data=[
@@ -245,8 +248,8 @@ This way you can quickly see what has been growing (green) vs. going backwards (
 
 
 
-html.Div([html.H3("Australian GDP Year on Year Volume Movements by Industry")], style={"textAlign": "center"}),
-html.Div([html.H4("(Last 12 months from March 2019 to Previous 12 months)")], style={"textAlign": "center"}),
+html.Div([html.H3("Australian GDP Year on Year Chain Volume Measure Movements by Industry")], style={"textAlign": "center"}),
+html.Div([html.H4("(Last 12 months from June 2019 to Previous 12 months)")], style={"textAlign": "center"}),
 	dcc.Graph(
 	figure= go.Figure(
 		data=[
