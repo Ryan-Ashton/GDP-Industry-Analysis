@@ -156,14 +156,14 @@ Taxes = Taxes_CY - Taxes_PY
 Stats = Stats_CY - Stats_PY
 
 
-labels = ["Financial & insurance services", "Ownership of dwellings", "Mining", "Construction", "Health care & social assistance",
+labels = ["Mining", "Financial & insurance services", "Ownership of dwellings", "Construction", "Health care & social assistance",
 "Professional, scientific & technical services", "Taxes less subsidies on products", "Manufacturing", "Public administration & safety",
 "Education and training", "Transport, postal & warehousing", "Retail trade", "Wholesale trade", "Administrative & support services",
 "Rental, hiring & real estate services", "Information media & telecommunications", "Electricity, gas, water & waste services",
 "Agriculture, forestry and fishing", "Accommodation & food services", "Other services", "Arts & recreation services", "Statistical discrepancy"]           
 
 
-values = [Financial_CY, Owner_CY, Mining_CY, Construct_CY, Health_CY, Professional_CY,
+values = [Mining_CY, Financial_CY, Owner_CY, Construct_CY, Health_CY, Professional_CY,
 Taxes_CY, Manufact_CY, Public_CY, Educate_CY, Transport_CY ,RetailTrade_CY
 ,WholeTrade_CY, Admin_CY, Rental_CY, Info_CY, Elect_CY, Agr_CY, AccomFS_CY
 ,Other_CY, Arts_CY, Stats_CY]
