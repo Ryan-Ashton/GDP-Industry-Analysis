@@ -10,8 +10,11 @@ import dash_html_components as html
 
 # https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/5206.0Dec%202019?OpenDocument
 
-df = pd.read_excel(f"https://www.abs.gov.au/ausstats/meisubs.nsf/log?openagent&5206006_industry_gva.xls&5206.0&Time%20Series%20Spreadsheet&13717EFC68459FA1CA258520000C2AA5&0&Dec%202019&04.03.2020&Latest",
+df = pd.read_excel(f"https://www.abs.gov.au/ausstats/meisubs.nsf/log?openagent&5206006_industry_gva.xls&5206.0&Time%20Series%20Spreadsheet&AA7CB66E427B5D0DCA25857B0026469F&0&Mar%202020&03.06.2020&Latest",
 sheet_name='Data1')
+
+
+
 
 columns = ["Unnamed: 0",
 "Agriculture, forestry and fishing (A) ;",
@@ -70,8 +73,8 @@ df.drop(['Unit', 'Series Type', 'Data Type','Frequency', 'Collection Month',
 df.index = pd.to_datetime(df.index)
 df.index.names = ['Date']
 
-Prior_Year = df['2018-01-01' :'2018-12-01']
-Current_Year = df['2019-01-01' :'2019-12-01']
+Prior_Year = df['2018-03-01' :'2019-03-01']
+Current_Year = df['2019-03-01' :'2020-03-01']
 
 # Prior Year Calculations
 Agr_PY = Prior_Year['Agriculture, forestry and fishing'].sum() * 1000000
@@ -156,14 +159,14 @@ Taxes = Taxes_CY - Taxes_PY
 Stats = Stats_CY - Stats_PY
 
 
-labels = ["Mining", "Financial & insurance services", "Ownership of dwellings", "Construction", "Health care & social assistance",
+labels = ["Financial & insurance services", "Ownership of dwellings", "Mining", "Construction", "Health care & social assistance",
 "Professional, scientific & technical services", "Taxes less subsidies on products", "Manufacturing", "Public administration & safety",
 "Education and training", "Transport, postal & warehousing", "Retail trade", "Wholesale trade", "Administrative & support services",
 "Rental, hiring & real estate services", "Information media & telecommunications", "Electricity, gas, water & waste services",
 "Agriculture, forestry and fishing", "Accommodation & food services", "Other services", "Arts & recreation services", "Statistical discrepancy"]           
 
 
-values = [Mining_CY, Financial_CY, Owner_CY, Construct_CY, Health_CY, Professional_CY,
+values = [Financial_CY, Owner_CY, Mining_CY, Construct_CY, Health_CY, Professional_CY,
 Taxes_CY, Manufact_CY, Public_CY, Educate_CY, Transport_CY ,RetailTrade_CY
 ,WholeTrade_CY, Admin_CY, Rental_CY, Info_CY, Elect_CY, Agr_CY, AccomFS_CY
 ,Other_CY, Arts_CY, Stats_CY]
@@ -189,7 +192,7 @@ measure = ["absolute", "relative", "relative", "relative", "relative", "relative
 
 layoutWF= go.Layout(
  margin=go.layout.Margin(l=260, r=10, t=40, b=30), yaxis=dict(showgrid=False), font=dict(size=10, color='black'),
- plot_bgcolor='rgba(0,0,0,0)', autosize=True, xaxis=go.layout.XAxis(autorange=False, range=[1860000000000, 1910000000000], showgrid=False)) 
+ plot_bgcolor='rgba(0,0,0,0)', autosize=True, xaxis=go.layout.XAxis(autorange=False, range=[1860000000000, 1880000000000], showgrid=False)) 
 
 layoutBar= go.Layout(
  margin=go.layout.Margin(l=0, r=10, t=40, b=250), showlegend=False, yaxis=dict(showgrid=False), xaxis=dict(showgrid=False),

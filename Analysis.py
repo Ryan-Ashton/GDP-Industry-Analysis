@@ -10,8 +10,11 @@ import dash_html_components as html
 
 # https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/5206.0Dec%202019?OpenDocument
 
-df = pd.read_excel(f"https://www.abs.gov.au/ausstats/meisubs.nsf/log?openagent&5206006_industry_gva.xls&5206.0&Time%20Series%20Spreadsheet&13717EFC68459FA1CA258520000C2AA5&0&Dec%202019&04.03.2020&Latest",
+df = pd.read_excel(f"https://www.abs.gov.au/ausstats/meisubs.nsf/log?openagent&5206006_industry_gva.xls&5206.0&Time%20Series%20Spreadsheet&AA7CB66E427B5D0DCA25857B0026469F&0&Mar%202020&03.06.2020&Latest",
 sheet_name='Data1')
+
+
+
 
 columns = ["Unnamed: 0",
 "Agriculture, forestry and fishing (A) ;",
@@ -70,8 +73,8 @@ df.drop(['Unit', 'Series Type', 'Data Type','Frequency', 'Collection Month',
 df.index = pd.to_datetime(df.index)
 df.index.names = ['Date']
 
-Prior_Year = df['2017-12-01' :'2018-12-01']
-Current_Year = df['2019-01-01' :'2019-12-01']
+Prior_Year = df['2018-03-01' :'2019-03-01']
+Current_Year = df['2019-03-01' :'2020-03-01']
 
 # Prior Year Calculations
 Agr_PY = Prior_Year['Agriculture, forestry and fishing'].sum() * 1000000
@@ -189,7 +192,7 @@ measure = ["absolute", "relative", "relative", "relative", "relative", "relative
 
 layoutWF= go.Layout(
  margin=go.layout.Margin(l=260, r=10, t=40, b=30), yaxis=dict(showgrid=False), font=dict(size=10, color='black'),
- plot_bgcolor='rgba(0,0,0,0)', autosize=True, xaxis=go.layout.XAxis(autorange=False, range=[1780000000000, 1860000000000], showgrid=False)) 
+ plot_bgcolor='rgba(0,0,0,0)', autosize=True, xaxis=go.layout.XAxis(autorange=False, range=[1860000000000, 1880000000000], showgrid=False)) 
 
 layoutBar= go.Layout(
  margin=go.layout.Margin(l=0, r=10, t=40, b=250), showlegend=False, yaxis=dict(showgrid=False), xaxis=dict(showgrid=False),
